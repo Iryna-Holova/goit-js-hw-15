@@ -1,9 +1,16 @@
-const controller = document.getElementById("font-size-control");
-const text = document.getElementById("text");
-text.style.fontSize = controller.value + "px";
+// Get elements from the page
+const fontSizeControl = document.getElementById("font-size-control");
+const textElement = document.getElementById("text");
 
-controller.addEventListener("input", (e) => onRangeChange(e, text));
+// Set the initial font size based on the control value
+textElement.style.fontSize = fontSizeControl.value + "px";
 
-function onRangeChange(e, element) {
-  element.style.fontSize = e.currentTarget.value + "px";
+// Add an input event listener
+fontSizeControl.addEventListener("input", (e) =>
+  changeFontSize(e, textElement)
+);
+
+// Function to change the font size
+function changeFontSize(event, element) {
+  element.style.fontSize = event.currentTarget.value + "px";
 }
